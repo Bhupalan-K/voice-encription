@@ -1,0 +1,530 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&family=Roboto:wght@300;400;500&display=swap');
+
+:root {
+  --primary-bg: #0a0a0a;
+  --secondary-bg: #111111;
+  --accent-color: #ff0033;
+  --accent-hover: #ff1a4c;
+  --text-primary: #ffffff;
+  --text-secondary: #bebebe;
+  --border-color: #222222;
+  --input-bg: #1a1a1a;
+  --success-color: #00cc66;
+  --error-color: #ff3333;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--primary-bg);
+  color: var(--text-primary);
+  font-family: 'Roboto', sans-serif;
+  line-height: 1.6;
+}
+
+.app-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.app-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.app-header h1 {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  letter-spacing: 3px;
+  margin: 0.5rem 0;
+  color: var(--accent-color);
+  text-shadow: 0 0 10px rgba(255, 0, 51, 0.5);
+}
+
+.app-header p {
+  color: var(--text-secondary);
+  font-size: 1rem;
+  letter-spacing: 1px;
+}
+
+.logo-icon {
+  color: var(--accent-color);
+  filter: drop-shadow(0 0 8px rgba(255, 0, 51, 0.7));
+}
+
+.tabs {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.tab {
+  background: none;
+  border: none;
+  padding: 1rem 2rem;
+  color: var(--text-secondary);
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.tab:hover {
+  color: var(--text-primary);
+}
+
+.tab.active {
+  color: var(--accent-color);
+}
+
+.tab.active::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: var(--accent-color);
+  box-shadow: 0 0 8px rgba(255, 0, 51, 0.7);
+}
+
+.content-box {
+  background-color: var(--secondary-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 2rem;
+  flex-grow: 1;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+.content-box::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--accent-color), transparent);
+}
+
+.file-section {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.upload-area {
+  border: 2px dashed #333;
+  border-radius: 8px;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background-color: rgba(255, 0, 51, 0.05);
+}
+
+.upload-area:hover {
+  border-color: var(--accent-color);
+  background-color: rgba(255, 0, 51, 0.1);
+}
+
+.upload-area svg {
+  color: var(--text-secondary);
+}
+
+.upload-area p {
+  color: var(--text-secondary);
+  text-align: center;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.file-button {
+  background-color: var(--input-bg);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  padding: 0.5rem 1.5rem;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.file-button:hover {
+  border-color: var(--accent-color);
+}
+
+.key-input {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.key-input label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--text-secondary);
+}
+
+.key-input input {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  background-color: var(--input-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  color: var(--text-primary);
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.key-input input:focus {
+  outline: none;
+  border-color: var(--accent-color);
+  box-shadow: 0 0 0 2px rgba(255, 0, 51, 0.2);
+}
+
+.key-input input::placeholder {
+  color: #555;
+}
+
+.action-button {
+  background-color: var(--accent-color);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 1rem;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(255, 0, 51, 0.3);
+}
+
+.action-button:hover:not(:disabled) {
+  background-color: var(--accent-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(255, 0, 51, 0.4);
+}
+
+.action-button:disabled {
+  background-color: #333;
+  cursor: not-allowed;
+  opacity: 0.6;
+  box-shadow: none;
+}
+
+.reset-button {
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+  background: none;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  padding: 0.5rem 1rem;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.reset-button:hover {
+  color: var(--text-primary);
+  border-color: var(--text-primary);
+}
+
+.result-section {
+  border-top: 1px solid var(--border-color);
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+}
+
+.key-container {
+  background-color: var(--input-bg);
+  border-radius: 6px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  border-left: 3px solid var(--accent-color);
+}
+
+.key-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+  color: var(--accent-color);
+}
+
+.key-value {
+  background-color: rgba(255, 255, 255, 0.05);
+  padding: 1rem;
+  border-radius: 4px;
+  font-family: monospace;
+  font-size: 0.9rem;
+  word-break: break-all;
+  margin-bottom: 1rem;
+  color: var(--text-primary);
+}
+
+.key-warning {
+  color: var(--accent-color);
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.download-section {
+  text-align: center;
+  padding: 1.5rem;
+  background-color: rgba(0, 204, 102, 0.05);
+  border-radius: 6px;
+}
+
+.download-section h3 {
+  color: var(--success-color);
+  margin-bottom: 0.5rem;
+}
+
+.download-section p {
+  color: var(--text-secondary);
+  margin-bottom: 1.5rem;
+  word-break: break-word;
+}
+
+.download-button {
+  background-color: var(--success-color);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 0.8rem 1.5rem;
+  font-size: 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.3s ease;
+  margin: 0 auto;
+}
+
+.download-button:hover {
+  background-color: #00b359;
+  transform: translateY(-2px);
+}
+
+.error-message {
+  background-color: rgba(255, 51, 51, 0.1);
+  color: var(--error-color);
+  padding: 1rem;
+  border-radius: 4px;
+  margin-top: 1.5rem;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.app-footer {
+  margin-top: 2rem;
+  text-align: center;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+.disclaimer {
+  font-size: 0.8rem;
+  margin-top: 0.5rem;
+  opacity: 0.7;
+}
+
+.spin {
+  animation: spin 1.5s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@media (max-width: 768px) {
+  .app-container {
+    padding: 1rem;
+  }
+  
+  .tabs {
+    width: 100%;
+  }
+  
+  .tab {
+    flex: 1;
+    padding: 0.8rem;
+    font-size: 0.9rem;
+    justify-content: center;
+  }
+  
+  .content-box {
+    padding: 1.5rem;
+  }
+  
+  .key-value {
+    font-size: 0.8rem;
+  }
+}
+
+/* Add these styles to your existing CSS file */
+
+/* Time-lock section styles */
+.time-lock-section {
+  background-color: var(--input-bg);
+  border-radius: 6px;
+  padding: 1rem;
+  border-left: 3px solid #4a90e2;
+}
+
+.time-lock-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.time-lock-toggle {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  color: var(--text-secondary);
+}
+
+.time-lock-toggle input {
+  margin-right: 0.5rem;
+  cursor: pointer;
+}
+
+.time-lock-toggle svg {
+  color: #4a90e2;
+}
+
+.time-lock-inputs {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.date-time-input {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.date-time-input label {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+
+.date-time-input input {
+  width: 100%;
+  padding: 0.8rem;
+  background-color: rgba(0, 0, 0, 0.2);
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  color: var(--text-primary);
+  font-size: 0.9rem;
+}
+
+.date-time-input input:focus {
+  outline: none;
+  border-color: #4a90e2;
+  box-shadow: 0 0 0 2px rgba(74, 144, 226, 0.2);
+}
+
+/* Time-lock message in decrypt section */
+.time-lock-message {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+  border-radius: 6px;
+  gap: 0.5rem;
+  text-align: center;
+}
+
+.time-lock-message.locked {
+  background-color: rgba(255, 0, 0, 0.1);
+  border-left: 3px solid var(--error-color);
+}
+
+.time-lock-message.unlocked {
+  background-color: rgba(0, 204, 102, 0.1);
+  border-left: 3px solid var(--success-color);
+}
+
+.time-lock-message svg {
+  color: var(--accent-color);
+}
+
+.time-lock-message p {
+  color: var(--text-primary);
+}
+
+.time-remaining {
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+
+.time-lock-info {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+  color: #4a90e2;
+  font-size: 0.9rem;
+}
+
+/* Media query adjustments for smaller screens */
+@media (max-width: 768px) {
+  .time-lock-inputs {
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+}
+
