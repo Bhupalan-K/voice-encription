@@ -589,7 +589,6 @@ export default function FileEncryptionApp() {
                   )}
                 </div>
               )}
-              
               <button 
                 className="action-button"
                 onClick={decryptFileData}
